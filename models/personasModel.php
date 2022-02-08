@@ -52,6 +52,13 @@ class UsuariosModel{
 		return $sql_update;
 
 	}
+	
+		public static function deletePersona($eliminar_id){
+		//$sql_delete = Conexion::conexio()->query("DELETE FROM persona WHERE idpersona = '{$eliminar_id}'");
+		$sql_delete = Conexion::conexio()->query("UPDATE persona SET status = 0 WHERE idpersona  =
+			'{$eliminar_id}'");
+		return $sql_delete;
+	}
 
 }
 

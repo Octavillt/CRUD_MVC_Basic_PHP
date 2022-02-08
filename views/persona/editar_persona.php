@@ -1,6 +1,6 @@
 <?php
      //print_r($_GET['id']);
-$getPersona = Persona::getActualizarPersona();
+$getPersona = Persona::getPersona();
      /*print_r("<pre>");
      print_r($actualiUsuario);*/
 ?>

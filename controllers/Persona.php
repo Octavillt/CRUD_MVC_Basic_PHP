@@ -38,15 +38,15 @@
 			$res_gets =  UsuariosModel::getPersonas();
 			return $res_gets;
 		}
-		public static function getActualizarPersona(){
+		public static function getPersona(){
 			if(!empty($_REQUEST)){
 				$actualiza_id = intval($_REQUEST['id']);
-			$res_get =  UsuariosModel::getPersona($actualiza_id);
-			return $res_get;
-		}
-	}	
+				$res_get =  UsuariosModel::getPersona($actualiza_id);
+				return $res_get;
+			}
+		}	
 
-	public static function actualizarPersona(){
+		public static function actualizarPersona(){
 			if($_POST){
 				if(empty($_POST['txtNombre']) || empty($_POST['txtApellido']) ||
 					empty($_POST['numTelefono']) || empty($_POST['txtEmail'])){	
@@ -76,5 +76,25 @@
 				}
 			}
 		}
+
+		public static function eliminarPersona(){
+			if($_POST){
+				$eliminar_id = intval($_GET['id']);
+				$res_delete = UsuariosModel::deletePersona($eliminar_id);
+					/*print_r($res_delete);
+					die();*/
+					if($res_delete){
+						echo '<div class="alert alert-success text-center">
+						Registro Eliminado Correctamente.
+						</div>';
+					}else{
+						echo '<div class="alert alert-danger text-center">
+						Error al Eliminar al Usuario.
+						</div>';
+					}
+				}
+			}
+
+
 }
-?>
+	?>
