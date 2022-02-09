@@ -12,7 +12,9 @@ $getPersona = Persona::getPersona();
                     <div class="col-md-5">
                          <div class="text-center mt-2">
                               <?php 
-                              $upPersona = Persona::actualizarPersona();
+                              //$upPersona = Persona::actualizarPersona();
+                              $upPersona = new Persona();
+                              $upPersona -> actualizarPersona();
                               ?>
                          </div>
                          <div class="text-center mt-2">

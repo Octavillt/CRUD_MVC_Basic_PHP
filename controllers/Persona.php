@@ -45,8 +45,7 @@
 				return $res_get;
 			}
 		}	
-
-		public static function actualizarPersona(){
+		public  function actualizarPersona(){
 			if($_POST){
 				if(empty($_POST['txtNombre']) || empty($_POST['txtApellido']) ||
 					empty($_POST['numTelefono']) || empty($_POST['txtEmail'])){	
@@ -72,29 +71,44 @@
 						Error al Actualizar los Datos o el Correo ya Existe.
 						</div>';
 					}
-
+					return $res_update;
 				}
 			}
 		}
-
 		public static function eliminarPersona(){
 			if($_POST){
 				$eliminar_id = intval($_GET['id']);
 				$res_delete = UsuariosModel::deletePersona($eliminar_id);
-					/*print_r($res_delete);
-					die();*/
-					if($res_delete){
-						echo '<div class="alert alert-success text-center">
-						Registro Eliminado Correctamente.
+								/*print_r($res_delete);
+								die();*/
+								if($res_delete){
+									/*echo '<div class="alert alert-success text-center">
+									Registro Eliminado Correctamente.
+									</div>';*/ 
+									header("Location:".base_url."?pagina=listar_personas");
+								}else{
+									echo '<div class="alert alert-danger text-center">
+									Error al Eliminar al Usuario.
+									</div>';
+								}
+							}
+						}
+
+		public static function getPersonas(){
+				if(isset($_POST)){
+					$buscar_get = strtolower($_REQUEST['buscarp']);
+					$res_get =  UsuariosModel::buscarPersonas($buscar_get);
+					return $res_get;
+				}elseif(empty($_POST)){
+					echo '<div class="alert alert-warning text-center">
+						No se Encontraron Resultados.
 						</div>';
-					}else{
-						echo '<div class="alert alert-danger text-center">
-						Error al Eliminar al Usuario.
-						</div>';
-					}
 				}
-			}
+				//$res_get =  UsuariosModel::buscarPersonas($buscar_persona);
+				/*print_r('<pre>');
+				print_r($res_get);
+				return $res_get;*/
+		}
 
-
-}
+	}
 	?>

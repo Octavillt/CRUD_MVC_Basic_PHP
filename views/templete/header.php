@@ -25,10 +25,6 @@
               <a class="nav-link" href="<?= base_url ?>?pagina=crear_persona">Registrar Persona</a>
           </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Buscar Usuario">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-    </form>
 </div>
 </div>
 </nav>

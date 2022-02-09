@@ -60,6 +60,18 @@ class UsuariosModel{
 		return $sql_delete;
 	}
 
+	public static function buscarPersonas($buscar_get){
+		$arrPersonas = array();
+		$sql_get_all = Conexion::conexio()->query("SELECT idpersona, nombre, apellido, telefono, email, status FROM persona WHERE  status != 0 AND nombre LIKE '%{$buscar_get}%' OR apellido LIKE '%{$buscar_get}%' OR telefono LIKE '%{$buscar_get}%' OR email LIKE '%{$buscar_get}%'");
+		while($datos = $sql_get_all->fetch_array()){
+				array_push($arrPersonas, $datos);
+			}
+	
+		return $arrPersonas;
+	}
+
 }
 
+
+/*SELECT idpersona, nombre, apellido, telefono, email, status FROM persona WHERE idpersona LIKE '%$buscar_get%' OR nombre LIKE '%$buscar_get%' OR apellido LIKE '%$buscar_get%' OR telefono LIKE '%$buscar_get%' OR email LIKE '%$buscar_get%' AND status = 1*/
  ?>

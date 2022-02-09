@@ -4,7 +4,8 @@
 if(isset($_GET['pagina'])){
 
      if($_GET['pagina'] == "crear_persona" || $_GET['pagina'] == "listar_personas" ||
-          $_GET['pagina'] == 'editar_persona' || $_GET['pagina'] == 'eliminar_persona'){
+          $_GET['pagina'] == 'editar_persona' || $_GET['pagina'] == 'eliminar_persona' ||
+          $_GET['pagina'] == 'buscar_personas'){
 
           include "views/persona/".$_GET['pagina'].".php";
      }else{
