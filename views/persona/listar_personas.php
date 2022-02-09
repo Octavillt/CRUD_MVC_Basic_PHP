@@ -8,7 +8,7 @@ print_r($list_personas);*/
     <main class="container shadow-none p-3 mb-9 bg-light rounded">
        <div class="row justify-content-center shadow-sm p-1 mb-3 bg-body rounded">
           <div class="col-9 mt-2">
-            <form class="d-flex" method="post" action="<?= base_url ?>?pagina=buscar_personas">
+            <form class="d-flex" method="POST" action="<?= base_url ?>?pagina=buscar_personas">
                 <input class="form-control me-2" type="search" placeholder="Buscar Usuario"
                 name="buscarp" id="buscarp">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>

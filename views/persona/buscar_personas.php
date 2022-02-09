@@ -1,5 +1,9 @@
 <?php 
-$searchPersona = Persona::getPersonas();
+
+$validaSearch = Persona::validaBusqueda();
+$searchPersona = Persona::buscaPersonas();
+/*$searchPersona = new Persona();
+$searchPersona -> getPersonas();*/
 /*print_r('<pre>');
 print_r($searchPersona)*/
 ?>
@@ -7,9 +11,9 @@ print_r($searchPersona)*/
     <main class="container shadow-none p-3 mb-9 bg-light rounded">
      <div class="row justify-content-center shadow-sm p-1 mb-3 bg-body rounded">
       <div class="col-9 mt-2">
-        <form class="d-flex" method="post" action="<?= base_url ?>?pagina=buscar_personas">
+        <form class="d-flex" method="post" action="">
             <input class="form-control me-2" type="search" placeholder="Buscar Usuario"
-            name="buscarp" id="buscarp">
+            name="buscarp" id="buscarp" value="<?= $_REQUEST['buscarp']; ?>">
             <button class="btn btn-outline-success" type="submit">Buscar</button>
         </form>
         <div class="text-center mt-2">
